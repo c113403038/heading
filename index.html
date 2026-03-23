@@ -23,25 +23,39 @@
             font-size: 64px;
             font-weight: bold;
             margin: 0;
-            padding-top: 10px;
+            padding-top: 15px;
+            /* 使用 box-shadow 讓黑線產生粉紅重疊效果 */
             border-top: 6px solid black;
-            color: black;
+            box-shadow: 3px 3px 0px 0px #ffc0cb inset, 0px -3px 0px 0px #ffffff, 3px 0px 0px 0px #ffc0cb; 
+            /* 修正後的更簡潔寫法如下 */
+            border-top: 6px solid black;
+            position: relative;
             text-shadow: 3px 3px 0px #ffc0cb;
             width: fit-content;
-            letter-spacing: 1px;
+        }
+
+        /* 專門處理那條黑線的粉紅重疊 */
+        .h1-style::before {
+            content: "";
+            position: absolute;
+            top: -6px;
+            left: 3px;
+            width: 100%;
+            height: 6px;
+            background-color: #ffc0cb;
+            z-index: -1;
         }
 
         .h2-style {
             font-size: 42px;
             font-style: italic;
             font-weight: bold;
-            margin: 50px 0;
+            margin: 60px 0;
             padding: 10px;
             border: 2px solid black;
             outline: 3px solid #ffff00;
             width: 100%;
             box-sizing: border-box;
-            background-color: transparent;
         }
 
         .h3-wrapper {
