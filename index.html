@@ -23,27 +23,23 @@
             font-size: 64px;
             font-weight: bold;
             margin: 0;
-            padding-top: 15px;
-            /* 使用 box-shadow 讓黑線產生粉紅重疊效果 */
-            border-top: 6px solid black;
-            box-shadow: 3px 3px 0px 0px #ffc0cb inset, 0px -3px 0px 0px #ffffff, 3px 0px 0px 0px #ffc0cb; 
-            /* 修正後的更簡潔寫法如下 */
-            border-top: 6px solid black;
+            padding-top: 20px;
             position: relative;
             text-shadow: 3px 3px 0px #ffc0cb;
             width: fit-content;
         }
 
-        /* 專門處理那條黑線的粉紅重疊 */
+        /* 頂部黑線與粉紅重影線 */
         .h1-style::before {
             content: "";
             position: absolute;
-            top: -6px;
-            left: 3px;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 6px;
-            background-color: #ffc0cb;
-            z-index: -1;
+            background-color: black;
+            /* 讓黑線自己產生粉紅色的投影，效果與文字陰影完全一致 */
+            box-shadow: 3px 3px 0px #ffc0cb;
         }
 
         .h2-style {
